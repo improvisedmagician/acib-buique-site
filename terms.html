@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termos de Adesão | ACIB | BUÍQUE</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e40af', // Blue
+                        secondary: '#dc2626' // Red
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 flex flex-col min-h-screen">
+    <custom-navbar></custom-navbar>
+
+    <main class="max-w-4xl mx-auto py-12 px-4 flex-grow w-full">
+        <div class="text-center mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">Termos de Adesão - ACIB</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                Leia atentamente os termos e condições para se tornar um associado da ACIB.
+            </p>
+        </div>
+
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 md:p-8 space-y-4 text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+            <h2 class="text-xl font-semibold mb-3 text-primary dark:text-blue-400">1. Objeto</h2>
+            <p>O presente termo regula a adesão de pessoas físicas ou jurídicas ao quadro de associados da Associação Comercial e Industrial de Buíque (ACIB), bem como os direitos e deveres decorrentes desta associação.</p>
+
+            <h2 class="text-xl font-semibold mb-3 text-primary dark:text-blue-400">2. Requisitos para Associação</h2>
+            <p>Podem associar-se à ACIB empresários individuais, sociedades empresárias, profissionais liberais e outras entidades que exerçam atividade econômica lícita em Buíque ou região e que concordem com o estatuto social da ACIB.</p>
+
+            <h2 class="text-xl font-semibold mb-3 text-primary dark:text-blue-400">3. Processo de Adesão</h2>
+            <p>A adesão se efetiva mediante o preenchimento completo do formulário de associação (online ou físico), envio da documentação solicitada (se aplicável) e aprovação pela diretoria da ACIB, seguida do pagamento da taxa de adesão e/ou primeira mensalidade.</p>
+
+            <h2 class="text-xl font-semibold mb-3 text-primary dark:text-blue-400">4. Direitos do Associado</h2>
+            <p>São direitos do associado adimplente: participar dos eventos promovidos pela ACIB (conforme regras específicas de cada evento), usufruir dos convênios e benefícios oferecidos, ter acesso a informações e comunicados, votar e ser votado (conforme regras do estatuto), entre outros.</p>
+
+            <h2 class="text-xl font-semibold mb-3 text-primary dark:text-blue-400">5. Deveres do Associado</h2>
+            <p>São deveres do associado: cumprir o estatuto social e as deliberações da ACIB, manter seus dados cadastrais atualizados, pagar pontualmente as mensalidades e outras contribuições definidas, zelar pelo bom nome da associação.</p>
+
+            <h2 class="text-xl font-semibold mb-3 text-primary dark:text-blue-400">6. Mensalidades</h2>
+            <p>O valor e a forma de pagamento das mensalidades são definidos pela diretoria da ACIB e comunicados aos associados. A inadimplência pode acarretar a suspensão dos direitos e benefícios e, eventualmente, o desligamento do quadro associativo.</p>
+
+            <h2 class="text-xl font-semibold mb-3 text-primary dark:text-blue-400">7. Desligamento</h2>
+            <p>O associado pode solicitar seu desligamento a qualquer momento, mediante comunicação formal à ACIB. O desligamento também pode ocorrer por decisão da diretoria em casos de inadimplência prolongada ou infração estatutária.</p>
+
+            <h2 class="text-xl font-semibold mb-3 text-primary dark:text-blue-400">8. Disposições Gerais</h2>
+            <p>Ao enviar o formulário de associação, o proponente declara ter lido, compreendido e concordado integralmente com estes Termos de Adesão e com o Estatuto Social da ACIB.</p>
+
+            <p class="mt-6">Data de Vigência: [Inserir Data]</p>
+       
+        </div>
+    </main>
+
+    <custom-footer></custom-footer>
+
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            feather.replace();
+        });
+    </script>
+</body>
+</html>

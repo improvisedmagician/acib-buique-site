@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nós | ACIB | BUÍQUE</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e40af', // Blue
+                        secondary: '#dc2626' // Red
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 flex flex-col min-h-screen">
+    <custom-navbar></custom-navbar>
+
+    <main class="max-w-7xl mx-auto py-12 px-4 flex-grow w-full">
+        <div class="text-center mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">Sobre a ACIB</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                Conheça a história, missão, visão e valores da Associação Comercial e Industrial de Buíque.
+            </p>
+        </div>
+
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 md:p-8 space-y-6">
+            <div>
+                <h2 class="text-2xl font-semibold mb-3 text-primary dark:text-blue-400">Nossa História</h2>
+                <p class="text-gray-700 dark:text-gray-300">
+                    A Associação Comercial e Industrial de Buíque (ACIB) foi fundada em [Ano de Fundação] com o objetivo de unir e fortalecer os comerciantes e industriais da nossa cidade... [Adicionar mais detalhes sobre a história].
+                </p>
+            </div>
+             <hr class="dark:border-gray-700">
+            <div>
+                <h2 class="text-2xl font-semibold mb-3 text-primary dark:text-blue-400">Missão</h2>
+                <p class="text-gray-700 dark:text-gray-300">
+                    Representar e defender os interesses da classe empresarial, promovendo o desenvolvimento econômico e social de Buíque através da união, capacitação e oferta de serviços aos associados.
+                </p>
+            </div>
+             <hr class="dark:border-gray-700">
+            <div>
+                <h2 class="text-2xl font-semibold mb-3 text-primary dark:text-blue-400">Visão</h2>
+                <p class="text-gray-700 dark:text-gray-300">
+                    Ser reconhecida como a principal entidade de representação empresarial de Buíque, referência em associativismo e fomento de negócios.
+                </p>
+            </div>
+             <hr class="dark:border-gray-700">
+            <div>
+                <h2 class="text-2xl font-semibold mb-3 text-primary dark:text-blue-400">Valores</h2>
+                <ul class="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-1">
+                    <li>Ética e Transparência</li>
+                    <li>Compromisso com o Associado</li>
+                    <li>Inovação e Empreendedorismo</li>
+                    <li>Desenvolvimento Sustentável</li>
+                    <li>União e Cooperação</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <custom-footer></custom-footer>
+
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            feather.replace();
+        });
+    </script>
+</body>
+</html>

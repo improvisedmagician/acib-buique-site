@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notícias | ACIB | BUÍQUE</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e40af', // Blue
+                        secondary: '#dc2626' // Red
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 flex flex-col min-h-screen">
+    <custom-navbar></custom-navbar>
+
+    <main class="max-w-7xl mx-auto py-12 px-4 flex-grow w-full">
+        <div class="text-center mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">Notícias e Novidades</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                Fique por dentro dos últimos acontecimentos, comunicados e informações relevantes da ACIB e do comércio de Buíque.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="news-list">
+
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden flex flex-col">
+                <div class="h-48 overflow-hidden">
+                    <img src="https://via.placeholder.com/640x360/1e40af/ffffff?text=ACIB+Evento" alt="Imagem da notícia 1" class="w-full h-full object-cover">
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <p class="text-xs text-gray-500 dark:text-gray-400 mb-2 flex items-center gap-1"><i data-feather="calendar" class="w-3 h-3"></i> 20 de Outubro de 2025</p>
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-3">ACIB Promove Workshop de Vendas para Comércio Local</h3>
+                    <p class="text-sm text-gray-700 dark:text-gray-300 mb-4 flex-grow">
+                        Em parceria com o SEBRAE, a ACIB realizou um workshop focado em técnicas de vendas e atendimento ao cliente, visando capacitar os comerciantes de Buíque para as vendas de fim de ano.
+                    </p>
+                    <div class="mt-auto pt-4 border-t dark:border-gray-700">
+                        <a href="#" onclick="alert('Página de detalhe da notícia em desenvolvimento.'); return false;" class="text-primary hover:underline font-semibold flex items-center text-sm">
+                            Leia Mais <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden flex flex-col">
+                <div class="h-48 overflow-hidden">
+                    <img src="https://via.placeholder.com/640x360/dc2626/ffffff?text=Comércio+Buíque" alt="Imagem da notícia 2" class="w-full h-full object-cover">
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                     <p class="text-xs text-gray-500 dark:text-gray-400 mb-2 flex items-center gap-1"><i data-feather="calendar" class="w-3 h-3"></i> 15 de Outubro de 2025</p>
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-3">Novas Linhas de Crédito Facilitadas para Associados ACIB</h3>
+                    <p class="text-sm text-gray-700 dark:text-gray-300 mb-4 flex-grow">
+                        A diretoria da ACIB anuncia parceria com instituições financeiras locais para oferecer condições especiais de crédito para capital de giro e investimento aos seus associados.
+                    </p>
+                     <div class="mt-auto pt-4 border-t dark:border-gray-700">
+                         <a href="#" onclick="alert('Página de detalhe da notícia em desenvolvimento.'); return false;" class="text-primary hover:underline font-semibold flex items-center text-sm">
+                            Leia Mais <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+             <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden flex flex-col">
+                 <div class="h-48 overflow-hidden">
+                    <img src="https://via.placeholder.com/640x360/10b981/ffffff?text=Infraestrutura" alt="Imagem da notícia 3" class="w-full h-full object-cover">
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                     <p class="text-xs text-gray-500 dark:text-gray-400 mb-2 flex items-center gap-1"><i data-feather="calendar" class="w-3 h-3"></i> 08 de Outubro de 2025</p>
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-3">ACIB Reúne-se com Prefeitura para Discutir Melhorias na Iluminação Pública do Centro Comercial</h3>
+                    <p class="text-sm text-gray-700 dark:text-gray-300 mb-4 flex-grow">
+                       Representantes da associação levaram demandas dos comerciantes sobre a necessidade de reforço na iluminação pública, visando aumentar a segurança e o fluxo de clientes no período noturno.
+                    </p>
+                    <div class="mt-auto pt-4 border-t dark:border-gray-700">
+                        <a href="#" onclick="alert('Página de detalhe da notícia em desenvolvimento.'); return false;" class="text-primary hover:underline font-semibold flex items-center text-sm">
+                            Leia Mais <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            </div>
+        </main>
+
+    <custom-footer></custom-footer>
+
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            feather.replace(); // Renderiza ícones estáticos e nos cards
+        });
+    </script>
+</body>
+</html>

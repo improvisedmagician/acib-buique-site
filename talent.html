@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banco de Talentos | ACIB | BUÍQUE</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e40af', // Blue
+                        secondary: '#dc2626' // Red
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 flex flex-col min-h-screen">
+    <custom-navbar></custom-navbar>
+
+    <main class="max-w-7xl mx-auto py-12 px-4 flex-grow w-full">
+        <div class="text-center mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">Banco de Talentos ACIB</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+                Conectamos profissionais qualificados com empresas associadas. Encontre sua próxima oportunidade ou o talento que seu negócio precisa.
+            </p>
+        </div>
+
+        <section id="buscar-vagas" class="mb-12">
+             <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden max-w-3xl mx-auto">
+                <div class="bg-primary p-6 text-white">
+                    <h2 class="text-2xl font-bold flex items-center gap-2"><i data-feather="search" class="w-6 h-6"></i> Buscar Oportunidades</h2>
+                    <p class="opacity-90 text-sm mt-1">Encontre vagas disponíveis nas empresas associadas.</p>
+                </div>
+                <div class="p-6">
+                    <form id="job-search-form" class="space-y-4">
+                        <div>
+                            <label for="job-search" class="block mb-2 font-medium text-sm">Palavra-chave ou Cargo</label>
+                            <input type="text" id="job-search" placeholder="Ex: Vendedor, Auxiliar Administrativo, Marketing..." class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary dark:bg-gray-700 dark:border-gray-600 text-sm">
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="job-area" class="block mb-2 font-medium text-sm">Área</label>
+                                <select id="job-area" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary dark:bg-gray-700 dark:border-gray-600 text-sm">
+                                    <option value="">Todas as Áreas</option>
+                                    <option value="administrativo">Administrativo</option>
+                                    <option value="comercial">Comercial / Vendas</option>
+                                    <option value="marketing">Marketing / Comunicação</option>
+                                    <option value="tecnologia">Tecnologia</option>
+                                    <option value="rh">Recursos Humanos</option>
+                                    <option value="financeiro">Financeiro / Contábil</option>
+                                    <option value="operacional">Operacional / Produção</option>
+                                     <option value="saude">Saúde</option>
+                                     <option value="educacao">Educação</option>
+                                     <option value="agro">Agronegócio</option>
+                                     <option value="turismo">Turismo / Hotelaria</option>
+                                   
+                                </select>
+                            </div>
+                            <div>
+                                <label for="job-type" class="block mb-2 font-medium text-sm">Tipo de Vaga</label>
+                                <select id="job-type" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary dark:bg-gray-700 dark:border-gray-600 text-sm">
+                                    <option value="">Todos os Tipos</option>
+                                    <option value="clt">CLT (Efetivo)</option>
+                                    <option value="pj">PJ (Pessoa Jurídica)</option>
+                                    <option value="estagio">Estágio</option>
+                                    <option value="temporario">Temporário</option>
+                                    <option value="freelancer">Freelancer</option>
+                                </select>
+                            </div>
+                        </div>
+                         <div id="job-search-message" class="hidden mt-4 p-3 bg-blue-100 dark:bg-blue-900 border border-blue-300 dark:border-blue-700 text-blue-700 dark:text-blue-200 rounded-lg text-center text-sm">
+                            Busca simulada realizada! (Funcionalidade de filtro real requer implementação adicional).
+                         </div>
+                        <div class="pt-2 text-center">
+                            <button type="submit" class="bg-primary hover:bg-blue-800 text-white font-bold py-2 px-6 rounded-lg transition duration-300 flex items-center justify-center gap-2 mx-auto text-sm">
+                                <i data-feather="search" class="w-4 h-4"></i> Buscar Vagas
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <hr class="my-12 dark:border-gray-700">
+
+        <section id="vagas-destaque" class="mb-12">
+            <h2 class="text-2xl font-bold mb-6 text-center">Vagas em Destaque</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="jobs-list-container">
+                <p class="text-center md:col-span-2 lg:col-span-3 text-gray-500">Carregando vagas...</p>
+            </div>
+         
+        </section>
+
+        <hr class="my-12 dark:border-gray-700">
+
+        <section id="cadastrar-curriculo" class="mb-12">
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden max-w-3xl mx-auto">
+                <div class="bg-secondary p-6 text-white">
+                    <h2 class="text-2xl font-bold flex items-center gap-2"><i data-feather="upload-cloud" class="w-6 h-6"></i> Cadastre Seu Currículo</h2>
+                    <p class="opacity-90 text-sm mt-1">Não encontrou a vaga ideal? Deixe seu currículo conosco para futuras oportunidades.</p>
+                </div>
+                <div class="p-6">
+                    <form id="resume-submit-form" class="space-y-4">
+                        <div>
+                            <label for="resume-name" class="block mb-2 font-medium text-sm">Nome Completo *</label>
+                            <input type="text" id="resume-name" required aria-required="true" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary dark:bg-gray-700 dark:border-gray-600 text-sm">
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="resume-email" class="block mb-2 font-medium text-sm">E-mail *</label>
+                                <input type="email" id="resume-email" required aria-required="true" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary dark:bg-gray-700 dark:border-gray-600 text-sm">
+                            </div>
+                            <div>
+                                <label for="resume-phone" class="block mb-2 font-medium text-sm">Telefone *</label>
+                                <input type="tel" id="resume-phone" required aria-required="true" placeholder="(XX) XXXXX-XXXX" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary dark:bg-gray-700 dark:border-gray-600 text-sm">
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                             <div>
+                                <label for="resume-area" class="block mb-2 font-medium text-sm">Área de Interesse Principal *</label>
+                                <select id="resume-area" required aria-required="true" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary dark:bg-gray-700 dark:border-gray-600 text-sm">
+                                    <option value="" disabled selected>Selecione...</option>
+                                    <option value="administrativo">Administrativo</option>
+                                    <option value="comercial">Comercial / Vendas</option>
+                                    <option value="marketing">Marketing / Comunicação</option>
+                                    <option value="tecnologia">Tecnologia</option>
+                                    <option value="rh">Recursos Humanos</option>
+                                    <option value="financeiro">Financeiro / Contábil</option>
+                                    <option value="operacional">Operacional / Produção</option>
+                                     <option value="saude">Saúde</option>
+                                     <option value="educacao">Educação</option>
+                                     <option value="agro">Agronegócio</option>
+                                     <option value="turismo">Turismo / Hotelaria</option>
+                            
+                                </select>
+                            </div>
+                             <div>
+                                <label for="resume-experience" class="block mb-2 font-medium text-sm">Nível de Experiência *</label>
+                                <select id="resume-experience" required aria-required="true" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary dark:bg-gray-700 dark:border-gray-600 text-sm">
+                                     <option value="" disabled selected>Selecione...</option>
+                                     <option value="sem_experiencia">Sem Experiência / Primeiro Emprego</option>
+                                    <option value="estagiario">Estagiário</option>
+                                    <option value="junior">Júnior (até 2 anos)</option>
+                                    <option value="pleno">Pleno (2 a 5 anos)</option>
+                                    <option value="senior">Sênior (5+ anos)</option>
+                                     <option value="especialista">Especialista / Liderança</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="resume-file" class="block mb-2 font-medium text-sm">Anexar Currículo (PDF, DOC, DOCX - máx 5MB) *</label>
+                            <input type="file" id="resume-file" accept=".pdf,.doc,.docx" required aria-required="true" class="w-full text-sm text-gray-500 dark:text-gray-400
+                                file:mr-4 file:py-2 file:px-4
+                                file:rounded-full file:border-0
+                                file:text-sm file:font-semibold
+                                file:bg-primary/10 file:text-primary
+                                hover:file:bg-primary/20
+                                dark:file:bg-blue-900/30 dark:file:text-blue-300 dark:hover:file:bg-blue-900/40">
+                        </div>
+                         <div id="resume-submit-message" class="hidden mt-4 p-3 bg-green-100 dark:bg-green-900 border border-green-400 dark:border-green-600 text-green-700 dark:text-green-200 rounded-lg text-center text-sm">
+                             Currículo enviado com sucesso! Entraremos em contato se houver vagas compatíveis.
+                         </div>
+                         <div class="pt-2 text-center">
+                            <button type="submit" class="bg-secondary hover:bg-red-700 text-white font-bold py-2 px-6 rounded-lg transition duration-300 flex items-center justify-center gap-2 mx-auto text-sm">
+                                <i data-feather="upload" class="w-4 h-4"></i> Enviar Currículo
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="para-empresas" class="py-12 bg-gray-200 dark:bg-gray-800 rounded-xl">
+             <div class="max-w-4xl mx-auto text-center px-4">
+                <h2 class="text-2xl font-bold mb-4 text-gray-800 dark:text-gray-200">Para Empresas Associadas</h2>
+                <p class="text-lg mb-6 text-gray-600 dark:text-gray-400">Como associado da ACIB, você pode divulgar suas vagas e ter acesso ao nosso banco de talentos qualificados para encontrar o profissional ideal.</p>
+               
+                <a href="associate.html" class="bg-primary hover:bg-blue-800 text-white font-bold py-3 px-6 rounded-lg transition duration-300 inline-flex items-center gap-2">
+                    <i data-feather="briefcase"></i> Anuncie Sua Vaga (Associados)
+                </a>
+                 <p class="text-sm mt-4 text-gray-500 dark:text-gray-400">Ainda não é associado? <a href="associate.html" class="text-primary hover:underline font-medium">Clique aqui e associe-se!</a></p>
+            </div>
+        </section>
+    </main>
+
+    <custom-footer></custom-footer>
+
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Sample job data (replace with actual data source if needed)
+            const jobs = [
+                 {
+                    id: 1,
+                    title: "Analista de Marketing Digital",
+                    company: "ACIB Comércio Exemplo", // Nome mais específico
+                    type: "CLT",
+                    location: "Buíque, PE", // Localização relevante
+                    salary: "R$ 3.500 - R$ 4.800",
+                    description: "Profissional com experiência em gestão de mídias sociais, Google Ads e análise de métricas para fortalecer nossa presença online.",
+                    posted: "2 dias atrás",
+                    area: "marketing"
+                },
+                {
+                    id: 2,
+                    title: "Vendedor Externo",
+                    company: "Distribuidora Regional Parceira",
+                    type: "CLT + Comissão",
+                    location: "Região de Buíque",
+                    salary: "Salário base + comissão", // Mais genérico se valor exato varia
+                    description: "Vendedor(a) com CNH B e experiência no setor de alimentos/bebidas para prospecção e atendimento a clientes na região.",
+                    posted: "1 semana atrás",
+                    area: "comercial"
+                },
+                 {
+                    id: 3,
+                    title: "Auxiliar Administrativo", // Título comum
+                    company: "Empresa Associada Local",
+                    type: "CLT",
+                    location: "Buíque, PE",
+                    salary: "A combinar",
+                    description: "Auxiliar nas rotinas administrativas, atendimento telefônico, organização de documentos e apoio à equipe. Conhecimento em pacote Office desejável.",
+                    posted: "3 dias atrás",
+                    area: "administrativo"
+                },
+                 {
+                    id: 4,
+                    title: "Desenvolvedor Web (Freelance)",
+                    company: "Startup de Tecnologia Associada",
+                    type: "PJ / Freelancer",
+                    location: "Remoto ou Buíque, PE",
+                    salary: "Por projeto",
+                    description: "Desenvolvedor(a) com experiência em front-end (React/Vue) ou back-end (Node.js/PHP) para projetos pontuais.",
+                    posted: "5 dias atrás",
+                    area: "tecnologia"
+                }
+                // Adicione mais vagas de exemplo se desejar
+            ];
+
+            const container = document.getElementById('jobs-list-container');
+
+            function renderJobs() {
+                container.innerHTML = ''; // Clear loading message
+
+                 if (jobs.length === 0) {
+                     container.innerHTML = '<p class="text-center md:col-span-2 lg:col-span-3 text-gray-500">Nenhuma vaga em destaque no momento.</p>';
+                     return; // Sai da função
+                 }
+
+                jobs.forEach(job => {
+                    container.innerHTML += `
+                        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden transition duration-300 hover:shadow-lg border border-transparent hover:border-primary/50">
+                            <div class="p-6">
+                                <div class="flex justify-between items-start mb-2">
+                                    <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100">${job.title}</h3>
+                                    <span class="bg-primary/10 text-primary text-xs px-2 py-1 rounded whitespace-nowrap">${job.type}</span>
+                                </div>
+                                <p class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">${job.company}</p>
+                                <div class="flex items-center text-gray-600 dark:text-gray-400 mb-2 text-xs">
+                                    <i data-feather="map-pin" class="w-3 h-3 mr-1.5"></i>
+                                    <span>${job.location}</span>
+                                </div>
+                                 <div class="flex items-center text-gray-600 dark:text-gray-400 mb-4 text-xs">
+                                     <i data-feather="dollar-sign" class="w-3 h-3 mr-1.5"></i>
+                                     <span>${job.salary}</span>
+                                 </div>
+                                <p class="text-sm text-gray-700 dark:text-gray-300 mb-4">${job.description}</p>
+                                <div class="flex justify-between items-center border-t dark:border-gray-700 pt-4 mt-4">
+                                    <span class="text-xs text-gray-500">${job.posted}</span>
+                                    
+                                    <button onclick="alert('Funcionalidade de visualização de detalhes da vaga em desenvolvimento.')" class="bg-primary hover:bg-blue-800 text-white font-medium py-1 px-3 rounded-lg transition duration-300 flex items-center justify-center gap-1 text-xs">
+                                        <i data-feather="arrow-right" class="w-3 h-3"></i> Detalhes
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+
+            // --- FORMULÁRIO DE BUSCA ---
+            const searchForm = document.getElementById('job-search-form');
+            const searchMessage = document.getElementById('job-search-message');
+            const searchButton = searchForm.querySelector('button[type="submit"]');
+
+            if(searchForm && searchMessage && searchButton) {
+                searchForm.addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    searchButton.disabled = true;
+                    searchButton.innerHTML = `<i data-feather="loader" class="w-4 h-4 animate-spin"></i> Buscando...`;
+                     feather.replace({root: searchButton}); // Re-render icon
+
+                    setTimeout(() => {
+                        searchMessage.classList.remove('hidden');
+                        searchButton.disabled = false;
+                        searchButton.innerHTML = `<i data-feather="search" class="w-4 h-4"></i> Buscar Vagas`;
+                        feather.replace({root: searchButton});
+
+                         setTimeout(() => { searchMessage.classList.add('hidden'); }, 4000); // Hide after 4s
+                         // Aqui você adicionaria a lógica real de filtro se tivesse
+                         // renderJobs(jobsFiltrados);
+                    }, 1000); // Simulate search delay
+                });
+            }
+
+            // --- FORMULÁRIO DE ENVIO DE CURRÍCULO ---
+            const resumeForm = document.getElementById('resume-submit-form');
+            const resumeMessage = document.getElementById('resume-submit-message');
+            const resumeButton = resumeForm.querySelector('button[type="submit"]');
+            const resumeFileInput = document.getElementById('resume-file');
+
+            if(resumeForm && resumeMessage && resumeButton && resumeFileInput) {
+                 resumeForm.addEventListener('submit', function(event) {
+                    event.preventDefault();
+
+                    // Basic check for file size (5MB limit) - More robust validation is better
+                    if (resumeFileInput.files.length > 0) {
+                        const fileSize = resumeFileInput.files[0].size / 1024 / 1024; // in MB
+                        if (fileSize > 5) {
+                            alert('Erro: O arquivo do currículo não pode exceder 5MB.');
+                            return; // Stop submission
+                        }
+                    } else {
+                         alert('Erro: Por favor, anexe seu currículo.'); // Should be caught by 'required' but good fallback
+                         return;
+                    }
+
+
+                    resumeButton.disabled = true;
+                    resumeButton.innerHTML = `<i data-feather="loader" class="w-4 h-4 animate-spin"></i> Enviando...`;
+                     feather.replace({root: resumeButton});
+
+                    setTimeout(() => {
+                        resumeMessage.classList.remove('hidden');
+                        resumeForm.reset(); // Clear form
+                        resumeButton.disabled = false;
+                        resumeButton.innerHTML = `<i data-feather="upload" class="w-4 h-4"></i> Enviar Currículo`;
+                        feather.replace({root: resumeButton});
+
+                         setTimeout(() => { resumeMessage.classList.add('hidden'); }, 5000);
+                    }, 1500); // Simulate upload delay
+                });
+            }
+
+
+            // Renderiza as vagas iniciais e DEPOIS inicializa os ícones Feather
+            renderJobs();
+            feather.replace(); // Renderiza todos os ícones estáticos E os dinâmicos das vagas
+
+        });
+    </script>
+</body>
+</html>

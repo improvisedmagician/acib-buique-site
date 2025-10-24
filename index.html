@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACIB | BUÍQUE</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e40af', // Blue
+                        secondary: '#dc2626' // Red
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+    <custom-navbar></custom-navbar>
+
+    <section class="relative bg-gradient-to-r from-primary to-indigo-900 py-20 px-4">
+        <div class="max-w-7xl mx-auto text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 text-white">ACIB | BUÍQUE</h1>
+            <p class="text-xl md:text-2xl mb-8 text-white opacity-90">Fortalecendo o comércio local através de conexões e oportunidades</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="associate.html" class="bg-secondary hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 flex items-center gap-2">
+                    <i data-feather="user-plus"></i> Associe-se Agora
+                </a>
+                <a href="events.html" class="bg-white hover:bg-gray-100 text-primary font-bold py-3 px-6 rounded-lg transition duration-300 flex items-center gap-2">
+                    <i data-feather="calendar"></i> Agenda de Eventos
+                </a>
+                <a href="talent.html" class="bg-white hover:bg-gray-100 text-primary font-bold py-3 px-6 rounded-lg transition duration-300 flex items-center gap-2">
+                    <i data-feather="briefcase"></i> Banco de Talentos
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 px-4">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold mb-8 text-center">Acesso Rápido</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <a href="members.html" class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 flex flex-col items-center text-center">
+                    <div class="bg-primary/10 p-4 rounded-full mb-4">
+                        <i data-feather="users" class="text-primary w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Associados</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Conheça nossos associados</p>
+                </a>
+                <a href="events.html" class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 flex flex-col items-center text-center">
+                    <div class="bg-primary/10 p-4 rounded-full mb-4">
+                        <i data-feather="calendar" class="text-primary w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Eventos</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Participe dos nossos eventos</p>
+                </a>
+                <a href="talent.html" class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 flex flex-col items-center text-center">
+                    <div class="bg-primary/10 p-4 rounded-full mb-4">
+                        <i data-feather="briefcase" class="text-primary w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Talentos</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Encontre oportunidades</p>
+                </a>
+                <a href="news.html" class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 flex flex-col items-center text-center">
+                    <div class="bg-primary/10 p-4 rounded-full mb-4">
+                        <i data-feather="file-text" class="text-primary w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Notícias</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Fique por dentro</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 px-4 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold mb-8 text-center">Próximos Eventos</h2>
+            <div id="events-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <p class="text-center md:col-span-2 lg:col-span-3 text-gray-500">Carregando eventos...</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 px-4">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold mb-8 text-center">Depoimentos</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-primary/10 p-2 rounded-full mr-4" aria-hidden="true">
+                            <i data-feather="user" class="text-primary"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold">João Silva</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Comércio de Materiais</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300">"A ACIB transformou meu negócio através das conexões que fiz na associação."</p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-primary/10 p-2 rounded-full mr-4" aria-hidden="true">
+                            <i data-feather="user" class="text-primary"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold">Maria Oliveira</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Restaurante</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300">"Os eventos de capacitação me ajudaram a melhorar minha gestão financeira."</p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-primary/10 p-2 rounded-full mr-4" aria-hidden="true">
+                            <i data-feather="user" class="text-primary"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold">Carlos Souza</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Varejo</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300">"Encontrei excelentes profissionais através do Banco de Talentos da ACIB."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <custom-footer></custom-footer>
+
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Sample event data (replace with actual data source if needed)
+            const events = [
+                {
+                    title: "Workshop de Marketing Digital",
+                    date: "15/06/2024",
+                    time: "14:00 - 17:00",
+                    location: "Sede da ACIB",
+                    description: "Aprenda estratégias para alavancar seu negócio online."
+                },
+                {
+                    title: "Rede de Contatos",
+                    date: "22/06/2024",
+                    time: "19:00 - 21:00",
+                    location: "Hotel Central",
+                    description: "Evento de networking para associados."
+                },
+                {
+                    title: "Palestra Gestão Financeira",
+                    date: "05/07/2024",
+                    time: "09:00 - 12:00",
+                    location: "Sede da ACIB",
+                    description: "Como organizar suas finanças empresariais."
+                }
+            ];
+
+            const container = document.getElementById('events-container');
+
+            // Clear loading message and render events
+            if (container) {
+                container.innerHTML = ''; // Clear the "Carregando..." message
+                if (events.length > 0) {
+                    events.forEach(event => {
+                        container.innerHTML += `
+                            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden">
+                                <div class="bg-primary p-4 text-white">
+                                    <h3 class="font-bold text-xl">${event.title}</h3>
+                                </div>
+                                <div class="p-6">
+                                    <div class="flex items-center mb-4 text-sm text-gray-600 dark:text-gray-400">
+                                        <i data-feather="calendar" class="mr-2 w-4 h-4 text-primary"></i>
+                                        <span>${event.date} • ${event.time}</span>
+                                    </div>
+                                    <div class="flex items-center mb-4 text-sm text-gray-600 dark:text-gray-400">
+                                        <i data-feather="map-pin" class="mr-2 w-4 h-4 text-primary"></i>
+                                        <span>${event.location}</span>
+                                    </div>
+                                    <p class="text-gray-700 dark:text-gray-300 mb-4 text-sm">${event.description}</p>
+                                    <a href="events.html" class="text-primary font-semibold hover:underline flex items-center text-sm">
+                                        Mais detalhes <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        `;
+                    });
+                } else {
+                    container.innerHTML = '<p class="text-center md:col-span-2 lg:col-span-3 text-gray-500">Nenhum evento agendado no momento.</p>';
+                }
+            }
+
+            // IMPORTANT: Render ALL Feather icons on the page AFTER dynamic content is added
+            feather.replace();
+        });
+    </script>
+</body>
+</html>

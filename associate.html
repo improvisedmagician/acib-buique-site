@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Associe-se | ACIB | BUÍQUE</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e40af', // Blue
+                        secondary: '#dc2626' // Red
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 flex flex-col min-h-screen">
+    <custom-navbar></custom-navbar>
+
+    <main class="max-w-4xl mx-auto py-12 px-4 flex-grow w-full">
+        <div class="text-center mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">Junte-se à ACIB</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                Faça parte da nossa rede de comércio e fortaleça seu negócio com benefícios exclusivos para associados.
+            </p>
+        </div>
+
+        <div class="mb-12 bg-primary/10 dark:bg-primary/20 rounded-xl p-8">
+            <h2 class="text-2xl font-bold mb-6 text-center text-primary dark:text-blue-300">Por que se Associar?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg text-center shadow">
+                    <div class="bg-primary/10 text-primary w-12 h-12 rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <i data-feather="users"></i>
+                    </div>
+                    <h3 class="font-semibold mb-2 text-lg">Networking</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">Conecte-se com outros empresários e amplie suas oportunidades.</p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg text-center shadow">
+                    <div class="bg-primary/10 text-primary w-12 h-12 rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <i data-feather="award"></i>
+                    </div>
+                    <h3 class="font-semibold mb-2 text-lg">Capacitação</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">Acesso a cursos, palestras e workshops exclusivos.</p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg text-center shadow">
+                    <div class="bg-primary/10 text-primary w-12 h-12 rounded-full flex items-center justify-center mb-4 mx-auto">
+                        <i data-feather="dollar-sign"></i>
+                    </div>
+                    <h3 class="font-semibold mb-2 text-lg">Benefícios</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">Descontos e condições especiais em produtos e serviços parceiros.</p>
+                </div>
+            </div>
+             <p class="text-center mt-6 text-gray-700 dark:text-gray-300">E muito mais! Preencha o formulário abaixo para iniciar.</p>
+        </div>
+
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden">
+            <div class="bg-primary p-6 text-white">
+                <h2 class="text-2xl font-bold flex items-center gap-2"><i data-feather="edit-3" class="w-6 h-6"></i> Formulário de Associação</h2>
+                <p class="opacity-90 text-sm mt-1">Preencha os dados abaixo para solicitar sua adesão.</p>
+            </div>
+
+            <form id="association-form" class="p-6 md:p-8 space-y-8"> 
+
+     
+                <div class="space-y-6 border-b dark:border-gray-700 pb-8">
+                    <h3 class="text-xl font-semibold flex items-center gap-2 text-gray-800 dark:text-gray-200">
+                        <i data-feather="user" class="w-5 h-5 text-primary"></i>
+                        Informações Pessoais
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block mb-2 font-medium text-sm">Nome Completo *</label>
+                            <input type="text" id="name" required aria-required="true" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary dark:bg-gray-700 dark:border-gray-600 text-sm">
+                        </div>
+                        <div>
+                            <label for="email" class="block mb-2 font-medium text-sm">E-mail *</label>
+                            <input type="email" id="email" required aria-required="true" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary dark:bg-gray-700 dark:border-gray-600 text-sm">
+                        </div>
+                        <div>
+                            <label for="phone" class="block mb-2 font-medium text-sm">Telefone *</label>
+                            <input type="tel" id="phone" required aria-required="true" placeholder="(XX) XXXXX-XXXX" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary dark:bg-gray-700 dark:border-gray-600 text-sm">
+                        </div>
+                        <div>
+                            <label for="cpf" class="block mb-2 font-medium text-sm">CPF *</label>
+                            <input type="text" id="cpf" required aria-required="true" placeholder="000.000.000-00" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary dark:bg-gray-700 dark:border-gray-600 text-sm">
+                        </div>
+                    </div>
+                </div>
+
+              
+                 <div class="space-y-6 border-b dark:border-gray-700 pb-8">
+                    <h3 class="text-xl font-semibold flex items-center gap-2 text-gray-800 dark:text-gray-200">
+                         <i data-feather="briefcase" class="w-5 h-5 text-primary"></i>
+                        Informações Empresariais
+                    </h3>
+                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="company" class="block mb-2 font-medium text-sm">Nome da Empresa / Nome Fantasia *</label>
+                            <input type="text" id="company" required aria-required="true" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary dark:bg-gray-700 dark:border-gray-600 text-sm">
+                        </div>
+                        <div>
+                            <label for="cnpj" class="block mb-2 font-medium text-sm">CNPJ (se aplicável)</label>
+                            <input type="text" id="cnpj" placeholder="00.000.000/0000-00" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary dark:bg-gray-700 dark:border-gray-600 text-sm">
+                        </div>
+                        <div>
+                            <label for="industry" class="block mb-2 font-medium text-sm">Ramo de Atividade *</label>
+                            <select id="industry" required aria-required="true" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary dark:bg-gray-700 dark:border-gray-600 text-sm">
+                                <option value="" disabled selected>Selecione...</option>
+                                <option value="varejo">Varejo</option>
+                                <option value="servicos">Serviços</option>
+                                <option value="industria">Indústria</option>
+                                <option value="alimentacao">Alimentação</option>
+                                <option value="agro">Agronegócio</option>
+                                <option value="turismo">Turismo</option>
+                                <option value="outros">Outros</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="years" class="block mb-2 font-medium text-sm">Tempo de Atividade *</label>
+                            <select id="years" required aria-required="true" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary dark:bg-gray-700 dark:border-gray-600 text-sm">
+                                <option value="" disabled selected>Selecione...</option>
+                                <option value="0-2">0-2 anos</option>
+                                <option value="3-5">3-5 anos</option>
+                                <option value="6-10">6-10 anos</option>
+                                <option value="10+">Mais de 10 anos</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="space-y-6 border-b dark:border-gray-700 pb-8">
+                     <h3 class="text-xl font-semibold flex items-center gap-2 text-gray-800 dark:text-gray-200">
+                         <i data-feather="check-square" class="w-5 h-5 text-primary"></i>
+                        Benefícios de Interesse
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">Marque os benefícios que mais te interessam (opcional):</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
+                        <div class="flex items-center">
+                            <input type="checkbox" id="networking" class="rounded text-primary focus:ring-primary h-4 w-4">
+                            <label for="networking" class="ml-2 text-sm">Eventos de Networking</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="checkbox" id="courses" class="rounded text-primary focus:ring-primary h-4 w-4">
+                            <label for="courses" class="ml-2 text-sm">Cursos e Capacitações</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="checkbox" id="discounts" class="rounded text-primary focus:ring-primary h-4 w-4">
+                            <label for="discounts" class="ml-2 text-sm">Descontos em Parceiros</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="checkbox" id="talent" class="rounded text-primary focus:ring-primary h-4 w-4">
+                            <label for="talent" class="ml-2 text-sm">Acesso ao Banco de Talentos</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="checkbox" id="legal" class="rounded text-primary focus:ring-primary h-4 w-4">
+                            <label for="legal" class="ml-2 text-sm">Assessoria (Jurídica/Contábil)</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="checkbox" id="marketing" class="rounded text-primary focus:ring-primary h-4 w-4">
+                            <label for="marketing" class="ml-2 text-sm">Divulgação do Negócio</label>
+                        </div>
+                    </div>
+                </div>
+
+            
+                <div class="space-y-6 border-b dark:border-gray-700 pb-8">
+                     <h3 class="text-xl font-semibold flex items-center gap-2 text-gray-800 dark:text-gray-200">
+                         <i data-feather="message-circle" class="w-5 h-5 text-primary"></i>
+                       
+                    </h3>
+                    <div>
+                        <label for="message" class="block mb-2 font-medium text-sm">Deixe uma mensagem ou observação</label>
+                        <textarea id="message" rows="4" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary focus:border-primary dark:bg-gray-700 dark:border-gray-600 text-sm"></textarea>
+                    </div>
+                </div>
+
+               
+                <div class="space-y-6">
+                    <div class="flex items-center">
+                        <input type="checkbox" id="terms" required aria-required="true" class="rounded text-primary focus:ring-primary h-4 w-4">
+                      
+                        <label for="terms" class="ml-2 text-sm">Li e aceito os <a href="terms.html" class="text-primary hover:underline font-medium" target="_blank">Termos de Adesão</a> *</label>
+                    </div>
+                    <div class="text-center pt-4">
+                        <button type="submit" class="bg-secondary hover:bg-red-700 text-white font-bold py-3 px-8 rounded-lg transition duration-300 flex items-center gap-2 mx-auto">
+                            <i data-feather="send" class="w-5 h-5"></i> Enviar Solicitação
+                        </button>
+                    </div>
+                </div>
+                <div id="success-message"
+         class="hidden mt-6 p-4 bg-green-100 dark:bg-green-900 border border-green-400 dark:border-green-600 text-green-700 dark:text-green-200 rounded-lg text-center text-sm">
+         Solicitação enviada com sucesso! Entraremos em contato em breve.
+    </div>
+            </form>
+        </div>
+    </main>
+
+    <custom-footer></custom-footer>
+
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="script.js"></script>
+    <script>
+       document.addEventListener('DOMContentLoaded', function() {
+        feather.replace(); // Renderiza ícones fora dos componentes
+
+        // --- INÍCIO DO CÓDIGO DO FORMULÁRIO ---
+        const form = document.getElementById('association-form');
+        const successMessage = document.getElementById('success-message');
+        const submitButton = form.querySelector('button[type="submit"]'); // Pega o botão
+
+        if (form && successMessage && submitButton) {
+            form.addEventListener('submit', function(event) {
+                event.preventDefault(); // Impede o envio real e recarregamento da página
+
+                // Simula um pequeno atraso (opcional, para parecer mais real)
+                submitButton.disabled = true; // Desabilita o botão para evitar cliques duplos
+                submitButton.textContent = 'Enviando...'; // Muda o texto do botão
+
+                setTimeout(() => {
+                    // Exibe a mensagem de sucesso
+                    successMessage.classList.remove('hidden');
+
+                    // Limpa o formulário (opcional)
+                    form.reset();
+
+                    // Reabilita o botão e restaura o texto original
+                    submitButton.disabled = false;
+                    // Recria o ícone + texto (necessário pois innerHTML apaga o SVG)
+                    submitButton.innerHTML = `<i data-feather="send" class="w-5 h-5"></i> Enviar Solicitação`;
+                    feather.replace({ root: submitButton }); // Re-renderiza o ícone NO botão
+
+                    // Opcional: Esconde a mensagem após alguns segundos
+                    setTimeout(() => {
+                        successMessage.classList.add('hidden');
+                    }, 5000); // Esconde após 5 segundos
+
+                }, 1000); // Atraso de 1 segundo (1000ms)
+            });
+        }
+        // --- FIM DO CÓDIGO DO FORMULÁRIO ---
+
+    });
+    </script>
+</body>
+</html>

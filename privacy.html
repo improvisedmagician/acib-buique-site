@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidade | ACIB | BUÍQUE</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e40af', // Blue
+                        secondary: '#dc2626' // Red
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 flex flex-col min-h-screen">
+    <custom-navbar></custom-navbar>
+
+    <main class="max-w-4xl mx-auto py-12 px-4 flex-grow w-full">
+        <div class="text-center mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">Política de Privacidade</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                Entenda como coletamos, usamos e protegemos seus dados pessoais.
+            </p>
+        </div>
+
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 md:p-8 space-y-4 text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+            <h2 class="text-xl font-semibold mb-3 text-primary dark:text-blue-400">1. Coleta de Dados</h2>
+            <p>Coletamos informações que você nos fornece diretamente ao preencher formulários em nosso site, como nome, e-mail, telefone, CPF/CNPJ e informações empresariais, ao se associar ou entrar em contato.</p>
+
+            <h2 class="text-xl font-semibold mb-3 text-primary dark:text-blue-400">2. Uso dos Dados</h2>
+            <p>Utilizamos seus dados para processar sua solicitação de associação, responder a contatos, enviar comunicados importantes sobre a ACIB, eventos e benefícios, e para melhorar nossos serviços.</p>
+
+            <h2 class="text-xl font-semibold mb-3 text-primary dark:text-blue-400">3. Compartilhamento de Dados</h2>
+            <p>Não compartilhamos seus dados pessoais com terceiros sem o seu consentimento explícito, exceto quando necessário para cumprir obrigações legais ou para fornecer os serviços solicitados por você (ex: inclusão em listas de associados visíveis apenas para outros membros, se aplicável e consentido).</p>
+
+            <h2 class="text-xl font-semibold mb-3 text-primary dark:text-blue-400">4. Segurança dos Dados</h2>
+            <p>Implementamos medidas de segurança adequadas para proteger seus dados contra acesso não autorizado, alteração, divulgação ou destruição.</p>
+
+             <h2 class="text-xl font-semibold mb-3 text-primary dark:text-blue-400">5. Seus Direitos</h2>
+             <p>Você tem o direito de acessar, corrigir, atualizar ou solicitar a exclusão dos seus dados pessoais. Entre em contato conosco através dos canais informados neste site para exercer seus direitos.</p>
+
+             <h2 class="text-xl font-semibold mb-3 text-primary dark:text-blue-400">6. Cookies</h2>
+             <p>Nosso site pode utilizar cookies essenciais para o funcionamento e, eventualmente, cookies para análise de tráfego (de forma anônima) para melhorar a experiência do usuário. Você pode gerenciar suas preferências de cookies nas configurações do seu navegador.</p>
+
+            <h2 class="text-xl font-semibold mb-3 text-primary dark:text-blue-400">7. Alterações na Política</h2>
+            <p>Podemos atualizar esta Política de Privacidade periodicamente. A versão mais recente estará sempre disponível em nosso site.</p>
+
+            <p class="mt-6">Última atualização: [Inserir Data]</p>
+         
+        </div>
+    </main>
+
+    <custom-footer></custom-footer>
+
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            feather.replace();
+        });
+    </script>
+</body>
+</html>
