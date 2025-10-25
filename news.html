@@ -32,74 +32,105 @@
             </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="news-list">
-
-            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden flex flex-col">
-                <div class="h-48 overflow-hidden">
-                    <img src="https://via.placeholder.com/640x360/1e40af/ffffff?text=ACIB+Evento" alt="Imagem da notícia 1" class="w-full h-full object-cover">
-                </div>
-                <div class="p-6 flex flex-col flex-grow">
-                    <p class="text-xs text-gray-500 dark:text-gray-400 mb-2 flex items-center gap-1"><i data-feather="calendar" class="w-3 h-3"></i> 20 de Outubro de 2025</p>
-                    <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-3">ACIB Promove Workshop de Vendas para Comércio Local</h3>
-                    <p class="text-sm text-gray-700 dark:text-gray-300 mb-4 flex-grow">
-                        Em parceria com o SEBRAE, a ACIB realizou um workshop focado em técnicas de vendas e atendimento ao cliente, visando capacitar os comerciantes de Buíque para as vendas de fim de ano.
-                    </p>
-                    <div class="mt-auto pt-4 border-t dark:border-gray-700">
-                        <a href="#" onclick="alert('Página de detalhe da notícia em desenvolvimento.'); return false;" class="text-primary hover:underline font-semibold flex items-center text-sm">
-                            Leia Mais <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden flex flex-col">
-                <div class="h-48 overflow-hidden">
-                    <img src="https://via.placeholder.com/640x360/dc2626/ffffff?text=Comércio+Buíque" alt="Imagem da notícia 2" class="w-full h-full object-cover">
-                </div>
-                <div class="p-6 flex flex-col flex-grow">
-                     <p class="text-xs text-gray-500 dark:text-gray-400 mb-2 flex items-center gap-1"><i data-feather="calendar" class="w-3 h-3"></i> 15 de Outubro de 2025</p>
-                    <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-3">Novas Linhas de Crédito Facilitadas para Associados ACIB</h3>
-                    <p class="text-sm text-gray-700 dark:text-gray-300 mb-4 flex-grow">
-                        A diretoria da ACIB anuncia parceria com instituições financeiras locais para oferecer condições especiais de crédito para capital de giro e investimento aos seus associados.
-                    </p>
-                     <div class="mt-auto pt-4 border-t dark:border-gray-700">
-                         <a href="#" onclick="alert('Página de detalhe da notícia em desenvolvimento.'); return false;" class="text-primary hover:underline font-semibold flex items-center text-sm">
-                            Leia Mais <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-             <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden flex flex-col">
-                 <div class="h-48 overflow-hidden">
-                    <img src="https://via.placeholder.com/640x360/10b981/ffffff?text=Infraestrutura" alt="Imagem da notícia 3" class="w-full h-full object-cover">
-                </div>
-                <div class="p-6 flex flex-col flex-grow">
-                     <p class="text-xs text-gray-500 dark:text-gray-400 mb-2 flex items-center gap-1"><i data-feather="calendar" class="w-3 h-3"></i> 08 de Outubro de 2025</p>
-                    <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-3">ACIB Reúne-se com Prefeitura para Discutir Melhorias na Iluminação Pública do Centro Comercial</h3>
-                    <p class="text-sm text-gray-700 dark:text-gray-300 mb-4 flex-grow">
-                       Representantes da associação levaram demandas dos comerciantes sobre a necessidade de reforço na iluminação pública, visando aumentar a segurança e o fluxo de clientes no período noturno.
-                    </p>
-                    <div class="mt-auto pt-4 border-t dark:border-gray-700">
-                        <a href="#" onclick="alert('Página de detalhe da notícia em desenvolvimento.'); return false;" class="text-primary hover:underline font-semibold flex items-center text-sm">
-                            Leia Mais <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="all-news-container">
+             <p class="text-center md:col-span-3 text-gray-500">Carregando notícias...</p>
+        </div>
         </main>
 
-    <custom-footer></custom-footer>
+        <custom-footer></custom-footer>
 
-    <script src="components/navbar.js"></script>
-    <script src="components/footer.js"></script>
-    <script src="script.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            feather.replace(); // Renderiza ícones estáticos e nos cards
-        });
-    </script>
-</body>
-</html>
+        <script src="components/navbar.js"></script>
+        <script src="components/footer.js"></script>
+        <script src="script.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // --- DADOS COMPLETOS DAS NOTÍCIAS (ATUALIZADOS COM IMAGENS) ---
+                const allNews = [
+                     {
+                        id: 1,
+                        date: "25/10/2025",
+                        title: "ACIB e SEBRAE Firmam Parceria para Capacitações em 2026",
+                        content: "Visando fortalecer ainda mais o comércio local, a ACIB e o SEBRAE-PE anunciaram hoje uma nova parceria estratégica. O acordo prevê a oferta de um calendário robusto de cursos, workshops e consultorias em áreas como gestão financeira, marketing digital, atendimento ao cliente e inovação, com condições especiais e subsídios para os associados da ACIB Buíque ao longo de 2026.",
+                        // Imagem: Pessoas em reunião/aperto de mãos (genérico)
+                        image: "https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=640&h=360&dpr=1",
+                        author: "Diretoria ACIB",
+                        category: "Parcerias"
+                    },
+                    {
+                        id: 2,
+                        date: "18/10/2025",
+                        title: "Comércio de Buíque se Prepara para as Vendas de Fim de Ano",
+                        content: "Com a proximidade das festas de fim de ano e da Black Friday, os lojistas associados à ACIB demonstram otimismo. Muitos já estão reforçando seus estoques, planejando promoções especiais e decorando suas vitrines para atrair os consumidores. A expectativa é de um aumento nas vendas em comparação ao ano anterior.",
+                        // Imagem: Loja decorada ou rua comercial (genérico)
+                        image: "https://images.pexels.com/photos/273238/pexels-photo-273238.jpeg?auto=compress&cs=tinysrgb&w=640&h=360&dpr=1",
+                        author: "Redação ACIB",
+                        category: "Comércio Local"
+                    },
+                    {
+                        id: 3,
+                        date: "10/10/2025",
+                        title: "Banco de Talentos ACIB Conecta Empresas e Profissionais Locais",
+                        content: "Lançado no início do mês, o Banco de Talentos no portal da ACIB já se mostra uma ferramenta valiosa. Dezenas de currículos de profissionais de Buíque e região foram cadastrados, e empresas associadas já começaram a divulgar suas vagas, facilitando o processo de contratação e retenção de talentos na cidade.",
+                         // Imagem: Pessoas em entrevista ou escritório (genérico)
+                        image: "https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&w=640&h=360&dpr=1",
+                        author: "Redação ACIB",
+                        category: "Serviços ACIB"
+                    },
+                     {
+                        id: 4,
+                        date: "02/10/2025",
+                        title: "ACIB participa de Encontro Regional de Associações Comerciais",
+                        content: "Representantes da ACIB Buíque estiveram presentes no encontro realizado em Garanhuns, trocando experiências com outras associações da região sobre desafios e boas práticas para o fortalecimento do associativismo e do comércio no interior de Pernambuco.",
+                        // Imagem: Pessoas em evento/palestra (genérico)
+                        image: "https://images.pexels.com/photos/1181396/pexels-photo-1181396.jpeg?auto=compress&cs=tinysrgb&w=640&h=360&dpr=1",
+                        author: "Diretoria ACIB",
+                        category: "Institucional"
+                    }
+                ];
+    
+                const container = document.getElementById('all-news-container');
+    
+                function renderNewsPageCard(newsItem) {
+                    // (Código da função renderNewsPageCard - sem alterações)
+                     return `
+                        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden flex flex-col transition duration-300 hover:shadow-lg">
+                             <div class="h-48 overflow-hidden">
+                                <img src="${newsItem.image}" alt="${newsItem.title}" class="w-full h-full object-cover">
+                            </div>
+                            <div class="p-6 flex flex-col flex-grow">
+                                <div class="mb-2 flex justify-between items-center text-xs text-gray-500 dark:text-gray-400">
+                                    <span><i data-feather="calendar" class="w-3 h-3 inline-block mr-1"></i>${newsItem.date}</span>
+                                    ${newsItem.category ? `<span><i data-feather="tag" class="w-3 h-3 inline-block mr-1"></i>${newsItem.category}</span>` : ''}
+                                </div>
+                                <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-3 line-clamp-3">${newsItem.title}</h3>
+                                <p class="text-sm text-gray-700 dark:text-gray-300 mb-4 flex-grow line-clamp-4">
+                                    ${newsItem.content}
+                                </p>
+                                <div class="mt-auto pt-4 border-t dark:border-gray-700">
+                                    <a href="#" onclick="alert('Página de detalhe da notícia em desenvolvimento.'); return false;" class="text-primary hover:underline font-semibold flex items-center text-sm">
+                                        Continuar Lendo <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+    
+                // --- Renderiza todas as notícias ---
+                 if (container) {
+                    container.innerHTML = ''; // Limpa msg
+                    if (allNews && allNews.length > 0) {
+                        allNews.forEach(news => {
+                            container.innerHTML += renderNewsPageCard(news);
+                        });
+                    } else {
+                        container.innerHTML = '<p class="text-center md:col-span-3 text-gray-500">Nenhuma notícia publicada ainda.</p>';
+                    }
+                }
+    
+                // Renderiza TODOS os ícones (inclusive os gerados dinamicamente)
+                feather.replace();
+            });
+        </script>
+    </body>
+    </html>

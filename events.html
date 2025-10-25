@@ -103,18 +103,19 @@
     <script src="script.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Sample event data (replace with actual data source if needed)
-            const allEvents = [
+            // --- DADOS COMPLETOS DOS EVENTOS (ATUALIZADOS COM IMAGENS) ---
+            const allEvents = [ // Renomeado para clareza
                  {
                     id: 1,
                     title: "Workshop de Marketing Digital",
-                    date: "15/06/2024", // Format DD/MM/YYYY
+                    date: "15/06/2024", // Mantendo datas originais como exemplo
                     time: "14:00 - 17:00",
                     location: "Sede da ACIB",
                     description: "Aprenda estratégias para alavancar seu negócio online com especialistas em marketing digital.",
                     category: "workshop",
                     type: "presencial",
-                    image: "https://via.placeholder.com/640x360/1e40af/ffffff?text=Marketing+Digital" // Placeholder image
+                    // Imagem: Pessoas em workshop ou usando laptop
+                    image: "https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg?auto=compress&cs=tinysrgb&w=640&h=360&dpr=1"
                 },
                 {
                     id: 2,
@@ -125,7 +126,8 @@
                     description: "Evento de networking exclusivo para associados da ACIB. Traga seu cartão de visitas!",
                     category: "networking",
                     type: "presencial",
-                    image: "https://via.placeholder.com/640x360/34d399/ffffff?text=Networking"
+                    // Imagem: Pessoas conversando em evento
+                    image: "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=640&h=360&dpr=1"
                 },
                 {
                     id: 3,
@@ -136,7 +138,8 @@
                     description: "Como organizar suas finanças empresariais com o consultor financeiro Carlos Mendes.",
                     category: "palestra",
                     type: "online",
-                    image: "https://via.placeholder.com/640x360/f59e0b/ffffff?text=Finanças"
+                    // Imagem: Gráficos financeiros ou calculadora
+                    image: "https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?auto=compress&cs=tinysrgb&w=640&h=360&dpr=1"
                 },
                 {
                     id: 4,
@@ -147,7 +150,8 @@
                     description: "Melhore a experiência do seu cliente e aumente as vendas com técnicas comprovadas.",
                     category: "curso",
                     type: "presencial",
-                    image: "https://via.placeholder.com/640x360/ef4444/ffffff?text=Atendimento"
+                    // Imagem: Pessoa atendendo cliente com sorriso
+                    image: "https://images.pexels.com/photos/5668858/pexels-photo-5668858.jpeg?auto=compress&cs=tinysrgb&w=640&h=360&dpr=1"
                 },
                 {
                     id: 5,
@@ -158,7 +162,8 @@
                     description: "Maior evento de negócios da região com expositores, palestras e oportunidades.",
                     category: "feira",
                     type: "presencial",
-                    image: "https://via.placeholder.com/640x360/6366f1/ffffff?text=Feira+Negócios"
+                    // Imagem: Centro de convenções ou estandes
+                    image: "https://images.pexels.com/photos/2608517/pexels-photo-2608517.jpeg?auto=compress&cs=tinysrgb&w=640&h=360&dpr=1"
                 },
                 {
                     id: 6,
@@ -169,30 +174,35 @@
                     description: "Descubra as principais tendências para o seu setor no próximo ano.",
                     category: "palestra",
                     type: "online",
-                    image: "https://via.placeholder.com/640x360/8b5cf6/ffffff?text=Tendências+2025"
+                    // Imagem: Tela de computador com gráficos ou pessoa em vídeo chamada
+                    image: "https://images.pexels.com/photos/593172/pexels-photo-593172.jpeg?auto=compress&cs=tinysrgb&w=640&h=360&dpr=1"
                 }
             ];
 
-            const container = document.getElementById('events-list-container');
+            // --- ELEMENTOS DO DOM ---
+            const container = document.getElementById('events-list-container'); // Certifique-se que o ID no HTML é este
             const categorySelect = document.getElementById('category');
             const monthSelect = document.getElementById('month');
             const presencialCheck = document.getElementById('presencial');
             const onlineCheck = document.getElementById('online');
             const filterBtn = document.getElementById('filter-btn');
 
+            // --- FUNÇÕES AUXILIARES ---
             function getCategoryName(categoryKey) {
                 const categories = {
-                    'networking': 'Networking',
-                    'workshop': 'Workshop',
-                    'palestra': 'Palestra',
-                    'curso': 'Curso',
-                    'feira': 'Feira'
+                    'networking': 'Networking', 'workshop': 'Workshop', 'palestra': 'Palestra',
+                    'curso': 'Curso', 'feira': 'Feira'
                 };
                 return categories[categoryKey] || categoryKey;
             }
 
+            // --- FUNÇÃO PARA RENDERIZAR OS CARDS ---
             function renderEvents(eventsToRender) {
-                container.innerHTML = ''; // Clear previous events or loading message
+                if (!container) {
+                     console.error("Contêiner de eventos não encontrado!");
+                     return;
+                }
+                container.innerHTML = ''; // Limpa
 
                 if (eventsToRender.length === 0) {
                     container.innerHTML = `
@@ -204,9 +214,9 @@
                     `;
                 } else {
                     eventsToRender.forEach(event => {
-                        const eventMonth = event.date.split('/')[1]; // Get month from date
+                        const eventMonth = event.date.split('/')[1];
                         const eventCard = `
-                            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden" data-month="${eventMonth}" data-category="${event.category}" data-type="${event.type}">
+                            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden flex flex-col transition duration-300 hover:shadow-lg" data-month="${eventMonth}" data-category="${event.category}" data-type="${event.type}">
                                 <div class="relative h-48 overflow-hidden">
                                     <img src="${event.image}" alt="${event.title}" class="w-full h-full object-cover">
                                     <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
@@ -215,9 +225,9 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="p-6">
+                                <div class="p-6 flex flex-col flex-grow">
                                     <div class="flex justify-between items-start mb-2">
-                                        <h3 class="text-lg font-bold">${event.title}</h3>
+                                        <h3 class="text-lg font-bold line-clamp-2">${event.title}</h3> 
                                         <span class="bg-primary/10 text-primary text-xs px-2 py-1 rounded whitespace-nowrap">${getCategoryName(event.category)}</span>
                                     </div>
                                     <div class="flex items-center text-gray-600 dark:text-gray-400 mb-2 text-sm">
@@ -228,10 +238,10 @@
                                         <i data-feather="map-pin" class="w-4 h-4 mr-2"></i>
                                         <span>${event.location}</span>
                                     </div>
-                                    <p class="text-gray-700 dark:text-gray-300 mb-6 text-sm">${event.description}</p>
-                                    <div class="flex justify-between items-center">
+                                    <p class="text-gray-700 dark:text-gray-300 mb-6 text-sm flex-grow line-clamp-3">${event.description}</p>
+                                    <div class="mt-auto flex justify-between items-center pt-4 border-t dark:border-gray-700">
                                         <span class="text-xs text-gray-500">Para associados e convidados</span>
-                                        <button class="bg-primary hover:bg-blue-800 text-white font-medium py-1 px-3 rounded-lg transition duration-300 flex items-center gap-1 text-sm">
+                                        <button onclick="alert('Funcionalidade de inscrição/detalhes em desenvolvimento.');" class="bg-primary hover:bg-blue-800 text-white font-medium py-1 px-3 rounded-lg transition duration-300 flex items-center gap-1 text-sm">
                                             <i data-feather="plus" class="w-4 h-4"></i> Participar
                                         </button>
                                     </div>
@@ -241,46 +251,47 @@
                         container.innerHTML += eventCard;
                     });
                 }
-                // Render icons AFTER updating innerHTML
+                // Renderiza ícones DEPOIS de adicionar todo o HTML dinâmico
                 feather.replace();
             }
 
+            // --- FUNÇÃO PARA FILTRAR OS EVENTOS ---
             function filterEvents() {
                 const selectedCategory = categorySelect.value;
-                const selectedMonth = monthSelect.value;
+                const selectedMonth = monthSelect.value; // Assume value '01', '02', etc.
                 const showPresencial = presencialCheck.checked;
                 const showOnline = onlineCheck.checked;
 
                 const filtered = allEvents.filter(event => {
-                    const eventMonth = event.date.split('/')[1]; // Extract month (MM)
+                    const eventMonth = event.date.split('/')[1]; // Pega MM
 
-                    // Category filter
-                    if (selectedCategory && event.category !== selectedCategory) {
-                        return false;
-                    }
-                    // Month filter
-                    if (selectedMonth && eventMonth !== selectedMonth) {
-                        return false;
-                    }
-                    // Type filter
-                    if (!showPresencial && event.type === 'presencial') {
-                        return false;
-                    }
-                    if (!showOnline && event.type === 'online') {
-                        return false;
-                    }
-                    // If none of the filters excluded it, include it
+                    if (selectedCategory && event.category !== selectedCategory) return false;
+                    if (selectedMonth && eventMonth !== selectedMonth) return false;
+                    if (!showPresencial && event.type === 'presencial') return false;
+                    if (!showOnline && event.type === 'online') return false;
                     return true;
                 });
 
                 renderEvents(filtered);
             }
 
-            // Initial render of all events
+            // --- INICIALIZAÇÃO ---
+            // Renderiza todos os eventos inicialmente
             renderEvents(allEvents);
 
-            // Add event listener to the filter button
-            filterBtn.addEventListener('click', filterEvents);
+            // Adiciona listener ao botão de filtro
+            if(filterBtn) {
+                 filterBtn.addEventListener('click', filterEvents);
+            } else {
+                 console.warn("Botão de filtro não encontrado.");
+            }
+            // Adiciona listeners aos checkboxes e selects para filtrar automaticamente (opcional)
+            /*
+            categorySelect.addEventListener('change', filterEvents);
+            monthSelect.addEventListener('change', filterEvents);
+            presencialCheck.addEventListener('change', filterEvents);
+            onlineCheck.addEventListener('change', filterEvents);
+            */
         });
     </script>
 </body>

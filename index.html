@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ACIB | BUÍQUE</title>
+    <title>ACIB | BUÍQUE - Associação Comercial e Industrial</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
@@ -20,8 +20,8 @@
             }
         }
     </script>
-</head>
-<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+    </head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 flex flex-col min-h-screen">
     <custom-navbar></custom-navbar>
 
     <section class="relative bg-gradient-to-r from-primary to-indigo-900 py-20 px-4">
@@ -42,6 +42,20 @@
         </div>
     </section>
 
+     <section class="py-16 px-4 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold mb-8 text-center">Últimas Notícias</h2>
+            <div id="latest-news-container" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <p class="text-center md:col-span-3 text-gray-500">Carregando notícias...</p>
+            </div>
+            <div class="text-center mt-8">
+                <a href="news.html" class="text-primary dark:text-blue-400 hover:underline font-semibold flex items-center justify-center gap-1">
+                    Ver Todas as Notícias <i data-feather="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <section class="py-16 px-4">
         <div class="max-w-7xl mx-auto">
             <h2 class="text-3xl font-bold mb-8 text-center">Acesso Rápido</h2>
@@ -51,82 +65,57 @@
                         <i data-feather="users" class="text-primary w-8 h-8"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-2">Associados</h3>
-                    <p class="text-gray-600 dark:text-gray-400">Conheça nossos associados</p>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">Conheça nossos membros</p>
                 </a>
                 <a href="events.html" class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 flex flex-col items-center text-center">
                     <div class="bg-primary/10 p-4 rounded-full mb-4">
                         <i data-feather="calendar" class="text-primary w-8 h-8"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-2">Eventos</h3>
-                    <p class="text-gray-600 dark:text-gray-400">Participe dos nossos eventos</p>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">Participe das atividades</p>
                 </a>
                 <a href="talent.html" class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 flex flex-col items-center text-center">
                     <div class="bg-primary/10 p-4 rounded-full mb-4">
                         <i data-feather="briefcase" class="text-primary w-8 h-8"></i>
                     </div>
                     <h3 class="text-xl font-semibold mb-2">Talentos</h3>
-                    <p class="text-gray-600 dark:text-gray-400">Encontre oportunidades</p>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">Encontre oportunidades</p>
                 </a>
-                <a href="news.html" class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 flex flex-col items-center text-center">
+                <a href="promotions.html" class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300 flex flex-col items-center text-center">
                     <div class="bg-primary/10 p-4 rounded-full mb-4">
-                        <i data-feather="file-text" class="text-primary w-8 h-8"></i>
+                        <i data-feather="tag" class="text-primary w-8 h-8"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-2">Notícias</h3>
-                    <p class="text-gray-600 dark:text-gray-400">Fique por dentro</p>
+                    <h3 class="text-xl font-semibold mb-2">Promoções</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">Ofertas dos associados</p>
                 </a>
             </div>
         </div>
     </section>
 
-    <section class="py-16 px-4 bg-gray-50 dark:bg-gray-800">
+     <section class="py-16 px-4 bg-gray-50 dark:bg-gray-800">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl font-bold mb-8 text-center">Próximos Eventos</h2>
-            <div id="events-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <p class="text-center md:col-span-2 lg:col-span-3 text-gray-500">Carregando eventos...</p>
+            <h2 class="text-3xl font-bold mb-8 text-center">Ofertas em Destaque</h2>
+            <div id="featured-promotions-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                 <p class="text-center md:col-span-2 lg:col-span-4 text-gray-500">Carregando promoções...</p>
+            </div>
+             <div class="text-center mt-8">
+                <a href="promotions.html" class="text-primary dark:text-blue-400 hover:underline font-semibold flex items-center justify-center gap-1">
+                    Ver Todas as Promoções <i data-feather="arrow-right" class="w-4 h-4"></i>
+                </a>
             </div>
         </div>
     </section>
 
     <section class="py-16 px-4">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-3xl font-bold mb-8 text-center">Depoimentos</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-primary/10 p-2 rounded-full mr-4" aria-hidden="true">
-                            <i data-feather="user" class="text-primary"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-semibold">João Silva</h3>
-                            <p class="text-sm text-gray-600 dark:text-gray-400">Comércio de Materiais</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-700 dark:text-gray-300">"A ACIB transformou meu negócio através das conexões que fiz na associação."</p>
-                </div>
-                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-primary/10 p-2 rounded-full mr-4" aria-hidden="true">
-                            <i data-feather="user" class="text-primary"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-semibold">Maria Oliveira</h3>
-                            <p class="text-sm text-gray-600 dark:text-gray-400">Restaurante</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-700 dark:text-gray-300">"Os eventos de capacitação me ajudaram a melhorar minha gestão financeira."</p>
-                </div>
-                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-primary/10 p-2 rounded-full mr-4" aria-hidden="true">
-                            <i data-feather="user" class="text-primary"></i>
-                        </div>
-                        <div>
-                            <h3 class="font-semibold">Carlos Souza</h3>
-                            <p class="text-sm text-gray-600 dark:text-gray-400">Varejo</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-700 dark:text-gray-300">"Encontrei excelentes profissionais através do Banco de Talentos da ACIB."</p>
-                </div>
+            <h2 class="text-3xl font-bold mb-8 text-center">Próximos Eventos</h2>
+            <div id="events-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <p class="text-center md:col-span-2 lg:col-span-3 text-gray-500">Carregando eventos...</p>
+            </div>
+             <div class="text-center mt-8">
+                <a href="events.html" class="text-primary dark:text-blue-400 hover:underline font-semibold flex items-center justify-center gap-1">
+                    Ver Agenda Completa <i data-feather="arrow-right" class="w-4 h-4"></i>
+                </a>
             </div>
         </div>
     </section>
@@ -138,66 +127,105 @@
     <script src="script.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Sample event data (replace with actual data source if needed)
+            // --- DADOS DE EXEMPLO ---
             const events = [
-                {
-                    title: "Workshop de Marketing Digital",
-                    date: "15/06/2024",
-                    time: "14:00 - 17:00",
-                    location: "Sede da ACIB",
-                    description: "Aprenda estratégias para alavancar seu negócio online."
-                },
-                {
-                    title: "Rede de Contatos",
-                    date: "22/06/2024",
-                    time: "19:00 - 21:00",
-                    location: "Hotel Central",
-                    description: "Evento de networking para associados."
-                },
-                {
-                    title: "Palestra Gestão Financeira",
-                    date: "05/07/2024",
-                    time: "09:00 - 12:00",
-                    location: "Sede da ACIB",
-                    description: "Como organizar suas finanças empresariais."
-                }
+                { title: "Workshop de Vendas Fim de Ano", date: "15/11/2025", time: "14:00", location: "Sede da ACIB", description: "Capacitação focada em técnicas de vendas para Black Friday e Natal." },
+                { title: "Café com Negócios - Networking", date: "22/11/2025", time: "08:00", location: "Hotel Central", description: "Troca de experiências e cartões entre os associados." },
+                { title: "Palestra Online: Marketing no Instagram", date: "05/12/2025", time: "19:00", location: "Online (Zoom)", description: "Como usar o Instagram para divulgar seu negócio e vender mais." },
+                { title: "Reunião Diretoria ACIB", date: "10/12/2025", time: "18:00", location: "Sede da ACIB", description: "Reunião mensal da diretoria (aberta a sugestões dos associados)." }
             ];
+            const latestNews = [
+                { date: "25/10/2025", title: "ACIB e SEBRAE Firmam Parceria para Capacitações em 2026", excerpt: "Nova parceria visa oferecer cursos de gestão, finanças e marketing digital com condições especiais para associados...", image: "https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=640&h=360&dpr=1", link: "news.html" },
+                { date: "18/10/2025", title: "Comércio de Buíque se Prepara para as Vendas de Fim de Ano", excerpt: "Lojistas associados à ACIB estão otimistas e preparam estoques e promoções para atrair clientes neste final de ano...", image: "https://images.pexels.com/photos/273238/pexels-photo-273238.jpeg?auto=compress&cs=tinysrgb&w=640&h=360&dpr=1", link: "news.html" },
+                { date: "10/10/2025", title: "Banco de Talentos ACIB Conecta Empresas e Profissionais Locais", excerpt: "Plataforma já registra dezenas de currículos e vagas, facilitando a contratação de mão de obra qualificada na cidade...", image: "https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&w=640&h=360&dpr=1", link: "talent.html" }
+            ];
+             const featuredPromotions = [
+                 { store: "Loja de Roupas Exemplo", title: "Liquidação Meia Estação", image: "https://images.pexels.com/photos/994523/pexels-photo-994523.jpeg?auto=compress&cs=tinysrgb&w=640&h=360&dpr=1", valid: "Até 15/11" },
+                 { store: "Café & Sabor Regional", title: "Happy Hour: Pague 2 Leve 3", image: "https://images.pexels.com/photos/1239287/pexels-photo-1239287.jpeg?auto=compress&cs=tinysrgb&w=640&h=360&dpr=1", valid: "Qua-Sex, 17h-19h" },
+                 { store: "Joalheria Brilho Raro", title: "15% OFF em Alianças", image: "https://images.pexels.com/photos/265917/pexels-photo-265917.jpeg?auto=compress&cs=tinysrgb&w=640&h=360&dpr=1", valid: "Mês dos Namorados" }, // URL Unsplash corrigida
+                 { store: "Mercadinho Preço Bom", title: "Hortifruti Fresquinho", image: "https://images.pexels.com/photos/2255935/pexels-photo-2255935.jpeg?auto=compress&cs=tinysrgb&w=640&h=360&dpr=1", valid: "Toda Terça" }
+             ];
 
-            const container = document.getElementById('events-container');
-
-            // Clear loading message and render events
-            if (container) {
-                container.innerHTML = ''; // Clear the "Carregando..." message
-                if (events.length > 0) {
-                    events.forEach(event => {
-                        container.innerHTML += `
-                            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden">
-                                <div class="bg-primary p-4 text-white">
-                                    <h3 class="font-bold text-xl">${event.title}</h3>
-                                </div>
-                                <div class="p-6">
-                                    <div class="flex items-center mb-4 text-sm text-gray-600 dark:text-gray-400">
-                                        <i data-feather="calendar" class="mr-2 w-4 h-4 text-primary"></i>
-                                        <span>${event.date} • ${event.time}</span>
-                                    </div>
-                                    <div class="flex items-center mb-4 text-sm text-gray-600 dark:text-gray-400">
-                                        <i data-feather="map-pin" class="mr-2 w-4 h-4 text-primary"></i>
-                                        <span>${event.location}</span>
-                                    </div>
-                                    <p class="text-gray-700 dark:text-gray-300 mb-4 text-sm">${event.description}</p>
-                                    <a href="events.html" class="text-primary font-semibold hover:underline flex items-center text-sm">
-                                        Mais detalhes <i data-feather="arrow-right" class="ml-1 w-4 h-4"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        `;
-                    });
-                } else {
-                    container.innerHTML = '<p class="text-center md:col-span-2 lg:col-span-3 text-gray-500">Nenhum evento agendado no momento.</p>';
+            // --- FUNÇÕES DE RENDERIZAÇÃO ---
+            function renderItems(containerId, items, renderFunction, emptyMessage) {
+                const container = document.getElementById(containerId);
+                if (container) {
+                    container.innerHTML = '';
+                    if (items && items.length > 0) {
+                        items.forEach(item => {
+                            container.innerHTML += renderFunction(item);
+                        });
+                    } else {
+                        container.innerHTML = `<p class="text-center md:col-span-full text-gray-500">${emptyMessage || 'Nenhum item para exibir no momento.'}</p>`;
+                    }
                 }
             }
 
-            // IMPORTANT: Render ALL Feather icons on the page AFTER dynamic content is added
+            // Função para renderizar um card de evento
+            function renderEventCard(event) {
+                return `
+                    <div class="bg-white dark:bg-gray-700 rounded-xl shadow-md overflow-hidden transition duration-300 hover:shadow-lg">
+                        <div class="bg-primary p-4 text-white">
+                            <h3 class="font-bold text-md truncate">${event.title}</h3>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex items-center mb-2 text-xs text-gray-600 dark:text-gray-400">
+                                <i data-feather="calendar" class="mr-1.5 w-3 h-3 text-primary"></i>
+                                <span>${event.date} • ${event.time}</span>
+                            </div>
+                            <div class="flex items-center mb-3 text-xs text-gray-600 dark:text-gray-400">
+                                <i data-feather="map-pin" class="mr-1.5 w-3 h-3 text-primary"></i>
+                                <span>${event.location}</span>
+                            </div>
+                            <p class="text-gray-700 dark:text-gray-300 mb-3 text-sm line-clamp-2">${event.description}</p>
+                            <a href="events.html" class="text-primary dark:text-blue-400 hover:underline font-semibold flex items-center text-xs">
+                                Mais detalhes <i data-feather="arrow-right" class="ml-1 w-3 h-3"></i>
+                            </a>
+                        </div>
+                    </div>
+                `;
+            }
+
+            // Função para renderizar um card de notícia
+            function renderNewsCard(news) {
+                 return `
+                    <div class="bg-white dark:bg-gray-700 rounded-xl shadow-md overflow-hidden flex flex-col transition duration-300 hover:shadow-lg">
+                         <div class="h-40 overflow-hidden">
+                            <img src="${news.image}" alt="${news.title}" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-4 flex flex-col flex-grow">
+                            <p class="text-xs text-gray-500 dark:text-gray-400 mb-1">${news.date}</p>
+                            <h4 class="font-semibold text-md mb-2 dark:text-white line-clamp-2">${news.title}</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-3 flex-grow line-clamp-3">${news.excerpt}</p>
+                            <a href="${news.link}" class="mt-auto text-primary dark:text-blue-400 hover:underline font-medium text-sm self-start">Leia mais</a>
+                        </div>
+                    </div>
+                `;
+            }
+
+            // Função para renderizar um card de promoção
+            function renderPromotionCard(promo) {
+                 return `
+                    <div class="bg-white dark:bg-gray-700 rounded-xl shadow overflow-hidden flex flex-col transition duration-300 hover:shadow-lg">
+                        <div class="h-32 overflow-hidden">
+                            <img src="${promo.image}" alt="${promo.title}" class="w-full h-full object-cover">
+                        </div>
+                        <div class="p-4 flex flex-col flex-grow">
+                            <p class="text-xs text-gray-500 dark:text-gray-400 mb-1 truncate">${promo.store}</p>
+                            <h4 class="font-semibold text-sm mb-2 dark:text-white line-clamp-2">${promo.title}</h4>
+                            <p class="text-xs text-secondary dark:text-red-400 font-medium mb-2">${promo.valid}</p>
+                            <a href="promotions.html" class="mt-auto text-primary dark:text-blue-400 hover:underline font-medium text-xs self-start">Ver detalhes</a>
+                        </div>
+                    </div>
+                 `;
+            }
+
+            // --- CHAMADAS PARA RENDERIZAR O CONTEÚDO DINÂMICO ---
+            renderItems('latest-news-container', latestNews, renderNewsCard, 'Nenhuma notícia recente.');
+            renderItems('featured-promotions-container', featuredPromotions, renderPromotionCard, 'Nenhuma promoção em destaque.');
+            renderItems('events-container', events, renderEventCard, 'Nenhum evento agendado.');
+
+            // IMPORTANT: Render ALL Feather icons on the page AFTER ALL dynamic content is added
             feather.replace();
         });
     </script>

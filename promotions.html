@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promoções dos Associados | ACIB | BUÍQUE</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e40af', // Blue
+                        secondary: '#dc2626' // Red
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 flex flex-col min-h-screen">
+   
+    <custom-navbar></custom-navbar>
+
+   
+    <main class="max-w-7xl mx-auto py-12 px-4 flex-grow w-full">
+        <div class="text-center mb-12">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">Promoções dos Associados</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                Confira as ofertas e descontos especiais oferecidos pelos nossos associados. Apoie o comércio local!
+            </p>
+        </div>
+
+       
+        <div class="mb-8 p-4 bg-gray-200 dark:bg-gray-800 rounded-lg shadow">
+             <p class="text-center text-sm text-gray-600 dark:text-gray-400">(Área para filtros por categoria ou busca em desenvolvimento)</p>
+        </div>
+
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="promotions-list">
+             <p class="text-center md:col-span-3 text-gray-500">Carregando promoções...</p>
+        </div>
+        </main>
+    
+
+    <custom-footer></custom-footer>
+
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- DADOS COMPLETOS DAS PROMOÇÕES (EXEMPLO COM IMAGENS) ---
+            const allPromotions = [
+                 {
+                    id: 1,
+                    store: "Loja de Roupas Exemplo Ltda",
+                    title: "Desconto de 20% em Jeans!",
+                    description: "Aproveite 20% de desconto em todas as calças jeans masculinas e femininas selecionadas. Peças modernas e de qualidade para renovar seu guarda-roupa. Válido enquanto durarem os estoques ou até o final do mês.",
+                    image: "https://images.pexels.com/photos/994523/pexels-photo-994523.jpeg?auto=compress&cs=tinysrgb&w=640&h=360&dpr=1",
+                    valid: "Válido até: 30/11/2025",
+                    category: "Moda"
+                },
+                 {
+                    id: 2,
+                    store: "Café & Sabor Regional",
+                    title: "Combo Café + Bolo Caseiro R$10",
+                    description: "Comece seu dia bem ou faça uma pausa saborosa! Café expresso ou coado + uma fatia deliciosa de bolo caseiro (sabores do dia) por apenas R$10,00.",
+                    image: "https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=640&h=360&dpr=1",
+                    valid: "Seg a Sex, das 8h às 11h",
+                    category: "Alimentação"
+                },
+                {
+                    id: 3,
+                    store: "Joalheria Brilho Raro",
+                    title: "15% OFF em Alianças Selecionadas",
+                    description: "Celebre o amor com um brilho especial. Desconto de 15% em alianças de ouro 18k selecionadas. Consulte modelos participantes na loja.",
+                    image: "https://images.pexels.com/photos/265917/pexels-photo-265917.jpeg?auto=compress&cs=tinysrgb&w=640&h=360&dpr=1",
+                    valid: "Mês de Novembro",
+                    category: "Joias e Acessórios"
+                 },
+                 {
+                    id: 4,
+                    store: "Mercadinho Preço Bom",
+                    title: "Fim de Semana da Limpeza",
+                    description: "Produtos de limpeza selecionados das melhores marcas com preços imbatíveis neste fim de semana. Venha conferir!",
+                    image: "https://images.pexels.com/photos/4198020/pexels-photo-4198020.jpeg?auto=compress&cs=tinysrgb&w=640&h=360&dpr=1",
+                    valid: "Sexta a Domingo",
+                    category: "Supermercado"
+                }
+            ];
+
+            const container = document.getElementById('promotions-list');
+
+            function renderPromotionCard(promo) {
+               // Código LIMPO sem comentários JSX
+               return `
+                  <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden flex flex-col transition duration-300 hover:shadow-lg">
+                      <div class="h-48 overflow-hidden">
+                          <img src="${promo.image}" alt="${promo.title}" class="w-full h-full object-cover">
+                      </div>
+                      <div class="p-6 flex flex-col flex-grow">
+                          <p class="text-xs text-gray-500 dark:text-gray-400 mb-1 truncate">${promo.store}</p>
+                          <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2 line-clamp-2">${promo.title}</h3>
+                          <p class="text-sm text-gray-700 dark:text-gray-300 mb-3 flex-grow line-clamp-3">
+                              ${promo.description}
+                          </p>
+                          <p class="text-xs text-secondary dark:text-red-400 font-medium mb-3">${promo.valid}</p>
+                          <div class="mt-auto pt-3 border-t dark:border-gray-700 text-center">
+                             
+                              <a href="#" onclick="alert('Link para mais detalhes ou contato da loja em desenvolvimento.'); return false;" class="text-primary hover:underline font-semibold text-sm">
+                                  Ver Detalhes
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+                `;
+            }
+
+            // --- Renderiza todas as promoções ---
+            if (container) {
+                container.innerHTML = ''; // Limpa msg
+                if (allPromotions && allPromotions.length > 0) {
+                    allPromotions.forEach(promo => {
+                        container.innerHTML += renderPromotionCard(promo);
+                    });
+                } else {
+                    container.innerHTML = `
+                        <p class="text-center md:col-span-2 lg:col-span-3 text-gray-500 dark:text-gray-400">
+                            Nenhuma promoção cadastrada no momento. Volte em breve!
+                        </p>`;
+                }
+            } else {
+                 console.error("Contêiner de promoções 'promotions-list' não encontrado!");
+            }
+
+            // Renderiza TODOS os ícones
+            feather.replace();
+        });
+    </script>
+</body>
+</html>

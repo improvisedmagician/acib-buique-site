@@ -149,6 +149,7 @@ class CustomFooter extends HTMLElement {
               <li><a href="members.html"><span class="icon-placeholder" data-icon-name="chevron-right"></span> Associados</a></li>
               <li><a href="events.html"><span class="icon-placeholder" data-icon-name="chevron-right"></span> Eventos</a></li>
               <li><a href="talent.html"><span class="icon-placeholder" data-icon-name="chevron-right"></span> Talentos</a></li>
+              <li><a href="promotions.html"><span class="icon-placeholder" data-icon-name="chevron-right"></span> Promoções</a></li>
             </ul>
           </div>
           <div class="footer-section">
